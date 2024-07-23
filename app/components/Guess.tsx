@@ -7,13 +7,13 @@ interface GuessProps {
     correctWord: string;
 }
 const Guess: React.FC<GuessProps> = ({ id, guess, correctWord }) => {
-    const getLetterStatus = (letter: string, index: number): string => {
+    const getLetterStatus = (letter: string, index: number): 'correct' | 'present' | 'unguessed' => {
         if (correctWord[index] === letter) {
             return 'correct';
         } else if (correctWord.includes(letter)) {
             return 'present';
         } else {
-            return 'absent';
+            return 'unguessed';
         }
     };
 
