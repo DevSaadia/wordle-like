@@ -19,6 +19,10 @@ const Wordle = () => {
     const maxGuesses = 6;
 
     const checkGuess = (): void => {
+        if (guessedWords.includes(guessedWord)) {
+            alert('You already guessed this word');
+            return;
+        }
         if (guessedWord.length !== word.length) {
             alert('Please enter a word of length 5');
             return;
