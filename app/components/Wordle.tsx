@@ -8,19 +8,27 @@ const Wordle = () => {
     //const [guessedWords, setguessedWords] = useState(['', '', '', '', '', '']);
     // let guessedWords = ['', '', '', '', '', ''];
 
-    const [guessedWords, setGuessedWords] = useState<string[]>([]);
+    const [guessedWords, setGuessedWords] = useState<string[]>(["", ""]);
+    // console.log(guessedWords);
     const [guessedWord, setGuessedWord] = useState('');
     const [gameOver, setGameOver] = useState(false);
-    const word = 'taxis';
+    const word = 'TAXIS';
     const [guessCount, setGuessCount] = useState(0);
     const [winStatus, setWinStatus] = useState(false);
 
     const maxGuesses = 6;
 
     const checkGuess = (): void => {
+        if (guessedWord.length !== word.length) {
+            alert('Please enter a word of length 5');
+            return;
+        }
         setGuessedWords([...guessedWords, guessedWord]);
         setGuessCount(guessCount + 1);
         console.log(guessCount);
+        console.log("guessed word is" + guessedWord);
+        console.log(word);
+        console.log(guessedWord === word);
         if (guessCount === maxGuesses) {
             setGameOver(true);
         }
@@ -52,8 +60,8 @@ const Wordle = () => {
                         id='user-input'
                         type='text'
                         placeholder='Enter your guess here'
-                        value={guessedWord}
-                        onChange={(e) => setGuessedWord(e.target.value)}
+                        value={guessedWord.toUpperCase()}
+                        onChange={(e) => setGuessedWord(e.target.value.toUpperCase())}
                         className='border border-black mt-8 rounded p-2'
                     />
                     <button
