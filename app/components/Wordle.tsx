@@ -13,7 +13,7 @@ const Wordle = () => {
     const [guessedWord, setGuessedWord] = useState('');
     const [gameOver, setGameOver] = useState(false);
     const word = 'TAXIS';
-    const [guessCount, setGuessCount] = useState(0);
+    const [guessCount, setGuessCount] = useState(1);
     const [winStatus, setWinStatus] = useState(false);
 
     const maxGuesses = 6;
@@ -27,19 +27,20 @@ const Wordle = () => {
             alert('Please enter a word of length 5');
             return;
         }
-        setGuessedWords([...guessedWords, guessedWord]);
+
         setGuessCount(guessCount + 1);
-        console.log(guessCount);
+        console.log("guesscount is" + guessCount);
+
         console.log("guessed word is" + guessedWord);
         console.log(word);
         console.log(guessedWord === word);
         if (guessCount === maxGuesses) {
             setGameOver(true);
         }
+        setGuessedWords([...guessedWords, guessedWord]);
         if (guessedWord === word) {
             setGameOver(true);
             setWinStatus(true);
-
         }
 
 
