@@ -19,6 +19,8 @@ const Wordle = () => {
     const maxGuesses = 6;
 
     const checkGuess = (): void => {
+
+
         if (guessedWords.includes(guessedWord)) {
             alert('You already guessed this word');
             return;
@@ -43,7 +45,7 @@ const Wordle = () => {
             setWinStatus(true);
         }
 
-
+        setGuessedWord('');
     }
 
 
@@ -53,8 +55,8 @@ const Wordle = () => {
             <br />
             {guessCount == 1 && <><p>Type in a 5 letter word and press enter to play</p><br /></>}
 
-            <div className='flex-col flex items-center justify-center w-1/2'>
-                <div className='w-96 h-96 border items-center flex-col flex border-black'>
+            <div className='flex-col flex items-center justify-center w-1/2 '>
+                <div className='w-96 h-96 border items-center flex-col flex border-black pt-2'>
                     {guessedWords.map((guess: string, index: React.Key | null | undefined) => (<Guess key={index} correctWord={word} guess={guess} id={0} />))}
                 </div >
 
@@ -62,19 +64,19 @@ const Wordle = () => {
                 {winStatus ? (<h2>You Win!</h2>) : (gameOver && <p>The word was {word}</p>)}
 
 
-                <div >
+                <div className='' >
                     <input
 
                         id='user-input'
                         type='text'
-                        placeholder='Enter your guess here'
+                        placeholder='Enter your guess here...'
                         value={guessedWord.toUpperCase()}
                         onChange={(e) => setGuessedWord(e.target.value.toUpperCase())}
-                        className='border border-black mt-8 rounded p-2'
+                        className='border border-black mt-8 rounded p-2 w-full'
                     />
                     <button
                         onClick={() => checkGuess()}
-                        className='border border-black mt-4 rounded ml-8 p-2 disabled:bg-slate-400'
+                        className='border border-black mt-4 rounded p-2 w-full text-white bg-green-600 hover:bg-green-800 disabled:bg-slate-400'
                         disabled={gameOver}
 
                     >
