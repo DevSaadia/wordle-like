@@ -61,7 +61,7 @@ const Wordle = () => {
                 </div >
 
                 {gameOver && <h2>Game Over</h2>}
-                {winStatus ? (<h2>You Win!</h2>) : (gameOver && <p>The word was {word}</p>)}
+                {winStatus ? (<h2>You Win!</h2>) : (gameOver && <p className='text-black'>The word was {word}</p>)}
 
 
                 <div className='' >
