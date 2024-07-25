@@ -72,7 +72,7 @@ const Wordle = () => {
                         placeholder='Enter your guess here...'
                         value={guessedWord.toUpperCase()}
                         onChange={(e) => setGuessedWord(e.target.value.toUpperCase())}
-                        className='border border-black mt-8 rounded p-2 w-full'
+                        className='border border-black mt-8 rounded p-2 w-full text-blue-700'
                     />
                     <button
                         onClick={() => checkGuess()}
