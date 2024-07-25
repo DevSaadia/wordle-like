@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Guess from './Guess'
 import Tile from './Tile';
+import { Words } from '../utilities/Words';
 
 const Wordle = () => {
 
@@ -12,7 +13,8 @@ const Wordle = () => {
     // console.log(guessedWords);
     const [guessedWord, setGuessedWord] = useState('');
     const [gameOver, setGameOver] = useState(false);
-    const word = 'TAXIS';
+    // const word = 'TAXIS';
+    const word = Words[Math.floor(Math.random() * Words.length)].toUpperCase();
     const [guessCount, setGuessCount] = useState(1);
     const [winStatus, setWinStatus] = useState(false);
 
