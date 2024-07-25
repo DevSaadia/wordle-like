@@ -14,7 +14,8 @@ const Wordle = () => {
     const [guessedWord, setGuessedWord] = useState('');
     const [gameOver, setGameOver] = useState(false);
     // const word = 'TAXIS';
-    const word = Words[Math.floor(Math.random() * Words.length)].toUpperCase();
+    const [word, setWord] = useState(Words[Math.floor(Math.random() * Words.length)].toUpperCase());
+    //Words[Math.floor(Math.random() * Words.length)].toUpperCase();
     const [guessCount, setGuessCount] = useState(1);
     const [winStatus, setWinStatus] = useState(false);
 
